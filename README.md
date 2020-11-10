@@ -46,3 +46,15 @@ yarn jar hadoop-examples-mapreduce-1.0-SNAPSHOT-jar-with-dependencies.jar maximu
 ```
 
 show output with `hdfs dfs -cat /user/cdrault/lab-3-2/q-184/part-r-00000`
+
+## 1.8.5
+
+Execute :
+
+```
+yarn jar hadoop-examples-mapreduce-1.0-SNAPSHOT-jar-with-dependencies.jar sort-height /user/cdrault/lab-3-2/trees.csv /user/cdrault/lab-3-2/q-184
+```
+
+show output with `hdfs dfs -cat /user/cdrault/lab-3-2/q-184/part-r-00000`
+
+
