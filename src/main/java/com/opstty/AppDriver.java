@@ -2,6 +2,8 @@ package com.opstty;
 
 import com.opstty.job.WordCount;
 import com.opstty.job.District;
+import com.opstty.job.Specie;
+
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -15,6 +17,9 @@ public class AppDriver {
                     
             programDriver.addClass("district", District.class,
                     "A MapReduce job that displays the list of district containing trees in this files");
+
+            programDriver.addClass("specie", Specie.class,
+                    "A MapReduce job that displays the list of Specie");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {
