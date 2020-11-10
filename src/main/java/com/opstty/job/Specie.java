@@ -1,7 +1,7 @@
 package com.opstty.job;
 
-import com.opstty.mapper.DistrictMapper;
-import com.opstty.reducer.DistrictReducer;
+import com.opstty.mapper.SpecieMapper;
+import com.opstty.reducer.SpecieReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
@@ -14,10 +14,10 @@ public class Specie {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "specie");
-        job.setJarByClass(District.class);
-        job.setMapperClass(DistrictMapper.class);
-        job.setCombinerClass(DistrictReducer.class);
-        job.setReducerClass(DistrictReducer.class);
+        job.setJarByClass(Specie.class);
+        job.setMapperClass(SpecieMapper.class);
+        job.setCombinerClass(SpecieReducer.class);
+        job.setReducerClass(SpecieReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(NullWritable.class);
         FileInputFormat.addInputPath(job, new Path(args[0]));
