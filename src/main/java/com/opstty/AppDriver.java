@@ -26,7 +26,7 @@ public class AppDriver {
             programDriver.addClass("trees-by-specie", TreesBySpecie.class,
                     "A MapReduce job that displays the list of Specie with the number of reccurence");
 
-            programDriver.addClass("trees-by-specie", MaximumHeight.class,
+            programDriver.addClass("maximum-height", MaximumHeight.class,
                     "A MapReduce job that displays the list of Specie with the number of reccurence");
 
             exitCode = programDriver.run(argv);
