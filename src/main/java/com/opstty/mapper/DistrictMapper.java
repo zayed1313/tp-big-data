@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class DistrictMapper extends Mapper<Object, Text, Text, NullWritable> {
 
-    public void map(Object key, Text value, Mapper.Context context)
+    public void map(Object key, Text value, Context context)
             throws IOException, InterruptedException {
         String[] cols = value.toString().split(";");
         if (cols[1].equals("ARRONDISSEMENT"))

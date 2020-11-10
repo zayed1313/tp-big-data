@@ -9,7 +9,7 @@ import java.io.IOException;
 public class TreesBySpecieMapper extends Mapper<Object, Text, Text, IntWritable> {
 
         IntWritable one = new IntWritable(1);
-    public void map(Object key, Text value, Mapper.Context context)
+    public void map(Object key, Text value, Context context)
             throws IOException, InterruptedException {
         String[] cols = value.toString().split(";");
         if (cols[2].equals("GENRE"))
