@@ -2,6 +2,7 @@ package com.opstty;
 
 import com.opstty.job.WordCount;
 import com.opstty.job.District;
+import com.opstty.job.MaximumHeight;
 import com.opstty.job.Specie;
 import com.opstty.job.TreesBySpecie;
 
@@ -23,6 +24,9 @@ public class AppDriver {
                     "A MapReduce job that displays the list of Specie");
 
             programDriver.addClass("trees-by-specie", TreesBySpecie.class,
+                    "A MapReduce job that displays the list of Specie with the number of reccurence");
+
+            programDriver.addClass("trees-by-specie", MaximumHeight.class,
                     "A MapReduce job that displays the list of Specie with the number of reccurence");
 
             exitCode = programDriver.run(argv);
