@@ -13,6 +13,14 @@ public class MaximumHeightMapper extends Mapper<Object, Text, Text, IntWritable>
         String[] cols = value.toString().split(";");
         if (cols[6].equals("HAUTEUR"))
             return;
-        context.write(new Text(cols[2]), new IntWritable(Integer.parseInt(cols[6])));
+        
+        IntWritable height = new IntWritable();
+        try {
+            height.set( (int) (Float.parseFloat(cols[6])));
+        } catch (Exception e) {
+            height.set(0);
+        }
+
+        context.write(new Text(cols[2]), height);
     }
 }
