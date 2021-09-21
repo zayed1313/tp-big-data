@@ -12,12 +12,8 @@
 
   <repositories>
     <repository>
-      <id>hortonworks.releases</id>
-      <url>http://repo.hortonworks.com/content/repositories/releases/</url>
-    </repository>
-    <repository>
-      <id>hortonworks.public</id>
-      <url>http://repo.hortonworks.com/content/groups/public/</url>
+      <id>ODP.REPO</id>
+      <url>https://nexus.luc-data.com/repository/maven-releases/</url>
     </repository>
   </repositories>
 
@@ -26,7 +22,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <!-- Versions -->
-    <hadoop.version>3.1.1</hadoop.version>
+    <hadoop.version>3.2.2</hadoop.version>
     <junit.version>4.11</junit.version>
     <mockito.version>1.10.19</mockito.version>
   </properties>
