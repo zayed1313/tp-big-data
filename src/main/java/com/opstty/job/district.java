@@ -1,0 +1,39 @@
+package com.opstty.job;
+
+import com.opstty.mapper.TokenizerMapper;
+import com.opstty.mapper.districMapper;
+import com.opstty.reducer.IntSumReducer;
+import com.opstty.reducer.districtReducer;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
+
+// 1.8.1 Districts containing trees
+public class district {
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length < 2) {
+            System.err.println("Usage: wordcount <in> [<in>...] <out>");
+            System.exit(2);
+        }
+        Job job = Job.getInstance(conf, "list");
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(districMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(districtReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        for (int i = 0; i < otherArgs.length - 1; ++i) {
+            FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
+        }
+        FileOutputFormat.setOutputPath(job,
+                new Path(otherArgs[otherArgs.length - 1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
